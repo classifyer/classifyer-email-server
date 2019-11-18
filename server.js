@@ -16,6 +16,7 @@ app.post('/send', (req, res) => {
   // Check body
   if (
     ! req.body ||
+    ! req.body.name || typeof req.body.name !== 'string' || ! req.body.name.trim() ||
     ! req.body.email || typeof req.body.email !== 'string' || ! req.body.email.trim() ||
     ! req.body.subject || typeof req.body.subject !== 'string' || ! req.body.subject.trim() ||
     ! req.body.category || typeof req.body.category !== 'string' || ! req.body.category.trim() ||
@@ -46,7 +47,7 @@ app.post('/send', (req, res) => {
     from: `"Classifyer Contact Form" <${process.env.MAIL_FROM}>`,
     to: process.env.MAIL_TO,
     subject: req.body.subject,
-    text: `Email: ${req.body.email}\nCategory: ${req.body.category}\nDate and Time: ${new Date(req.body.time)}\nTimestamp: ${req.body.time}\nMessage:\n\n${req.body.message}`
+    text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nCategory: ${req.body.category}\nDate and Time: ${new Date(req.body.time)}\nTimestamp: ${req.body.time}\nMessage:\n\n${req.body.message}`
   }, (error, info) => {
 
     // Error handling
