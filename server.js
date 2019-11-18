@@ -43,8 +43,8 @@ app.post('/send', (req, res) => {
     }
   })
   .sendMail({
-    from: '"Classifyer Contact Form" <ramtin@chiselpowered.com>',
-    to: 'classifyerapp@gmail.com',
+    from: `"Classifyer Contact Form" <${process.env.MAIL_FROM}>`,
+    to: process.env.MAIL_TO,
     subject: req.body.subject,
     text: `Email: ${req.body.email}\nCategory: ${req.body.category}\nDate and Time: ${new Date(req.body.time)}\nTimestamp: ${req.body.time}\nMessage:\n\n${req.body.message}`
   }, (error, info) => {
@@ -57,7 +57,7 @@ app.post('/send', (req, res) => {
     });
 
     // Success
-    if ( info.accepted && info.accepted.includes('classifyerapp@gmail.com') ) {
+    if ( info.accepted && info.accepted.includes(process.env.MAIL_TO) ) {
 
       res.status(200).json({
         ok: true

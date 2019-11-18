@@ -10,6 +10,8 @@ Follow these instructions:
     - `MAIL_PORT`: Your mail server port
     - `MAIL_USER`: Your mail server username (usually your email)
     - `MAIL_PASS`: Your mail server password
+    - `MAIL_FROM`: The sender email
+    - `MAIL_TO`: The receiver email address
   2. Create a Heroku account [here](https://signup.heroku.com/) and create a free instance.
   3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line).
   4. Run the following commands inside the project root:
