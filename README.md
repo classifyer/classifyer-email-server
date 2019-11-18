@@ -5,7 +5,7 @@ This server is used for sending emails from the [Classifyer](https://classifyer.
 # Server Setup
 
 Follow these instructions:
-  1. Create a file called `config.json` at the project root with the following content:
+  1. Create a file called `config.json` at the project root with the following content (keep in mind that if port number is anything other than `465`, then `secure` should be `false`):
   ```json
   {
     "host": "your-mail-server-host",
@@ -17,7 +17,6 @@ Follow these instructions:
     }
   }
   ```
-  Keep in mind that if port number is anything other than `465`, then `secure` should be `false`.
   2. Create a Heroku account [here](https://signup.heroku.com/) and create a free instance.
   3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line).
   4. Run the following commands inside the project root:
