@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const config = require('./config.json');
 const PORT = process.env.PORT || 8080;
 
 // Enable JSON body parser
@@ -34,7 +33,15 @@ app.post('/send', (req, res) => {
 
   // Send email
   nodemailer
-  .createTransport(config)
+  .createTransport({
+    host: process.env.MAIL_HOST,
+    port: +process.env.MAIL_PORT,
+    secure: +process.env.MAIL_PORT === 465,
+    auth: {
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS
+    }
+  })
   .sendMail({
     from: '"Classifyer Contact Form" <ramtin@chiselpowered.com>',
     to: 'classifyerapp@gmail.com',
