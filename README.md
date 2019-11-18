@@ -9,10 +9,10 @@ Follow these instructions:
   1. Create a Heroku account [here](https://signup.heroku.com/) and create a free instance.
   2. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line).
   3. Run the following commands inside the project root:
-  ```
-  heroku login
-  heroku git:remote -a classifyer-email-server
-  ```
+      ```
+      heroku login
+      heroku git:remote -a classifyer-email-server
+      ```
   4. Configure the server by adding the following config variables (either through [Heroku dashboard](https://devcenter.heroku.com/articles/config-vars#using-the-heroku-dashboard) or by running the [Heroku CLI config command](https://devcenter.heroku.com/articles/config-vars#using-the-heroku-cli)):  
       - `MAIL_HOST`: Your mail server host
       - `MAIL_PORT`: Your mail server port
