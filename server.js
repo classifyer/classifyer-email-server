@@ -8,7 +8,27 @@ const PORT = process.env.PORT || 8080;
 // Enable JSON body parser
 app.use(bodyParser.json());
 // Enable CORS
-app.use(cors({ origin: ['http://localhost', 'https://classifyer.app'] }));
+app.use(cors({ origin: (origin, cb) => {
+
+  try {
+
+    const url = new URL(origin);
+
+    // Frontend origin allowed
+    if ( url.origin === process.env.FRONTEND_ORIGIN ) cb(null, true);
+    // Localhost with any port allowed
+    else if ( url.hostname === 'localhost' ) cb(null, true);
+    // Other origins are denied
+    else cb(new Error('Origin not allowed by CORS.'));
+
+  }
+  catch (error) {
+
+    cb(new Error('Invalid origin!'));
+
+  }
+
+}}));
 
 // Define route /send
 app.post('/send', (req, res) => {

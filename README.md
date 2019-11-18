@@ -12,6 +12,7 @@ Follow these instructions:
     - `MAIL_PASS`: Your mail server password
     - `MAIL_FROM`: The sender email
     - `MAIL_TO`: The receiver email address
+    - `FRONTEND_ORIGIN`: The frontend app origin to allow with CORS
   2. Create a Heroku account [here](https://signup.heroku.com/) and create a free instance.
   3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line).
   4. Run the following commands inside the project root:
