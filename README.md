@@ -25,3 +25,21 @@ Follow these instructions:
       - `FRONTEND_ORIGIN`: The frontend app origin to allow with CORS
   7. Run `git push heroku master` to deploy the server. It should be up and running after a few seconds.
   8. Don't forget to add the email server's URL in the [Classifyer web app](https://github.com/classifyer/classifyer-web).
+
+# API
+
+This server creates the following RESTful API:
+  - Endpoint: `/send`
+  - Method: `POST`
+  - Headers: `Content-Type: application/json`
+  - Body:
+      ```json
+      {
+        "name": "string",
+        "email": "string",
+        "reason": "string",
+        "subject": "string",
+        "time": "number",
+        "message": "string"
+      }
+      ```

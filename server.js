@@ -39,7 +39,7 @@ app.post('/send', (req, res) => {
     ! req.body.name || typeof req.body.name !== 'string' || ! req.body.name.trim() ||
     ! req.body.email || typeof req.body.email !== 'string' || ! req.body.email.trim() ||
     ! req.body.subject || typeof req.body.subject !== 'string' || ! req.body.subject.trim() ||
-    ! req.body.category || typeof req.body.category !== 'string' || ! req.body.category.trim() ||
+    ! req.body.reason || typeof req.body.reason !== 'string' || ! req.body.reason.trim() ||
     ! req.body.message || typeof req.body.message !== 'string' || ! req.body.message.trim() ||
     ! req.body.time || typeof req.body.time !== 'number'
   ) {
@@ -67,7 +67,7 @@ app.post('/send', (req, res) => {
     from: `"Classifyer Contact Form" <${process.env.MAIL_FROM}>`,
     to: process.env.MAIL_TO,
     subject: req.body.subject,
-    text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nCategory: ${req.body.category}\nDate and Time: ${new Date(req.body.time)}\nTimestamp: ${req.body.time}\nMessage:\n\n${req.body.message}`
+    text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nReason: ${req.body.reason}\nDate and Time: ${new Date(req.body.time)}\nTimestamp: ${req.body.time}\nMessage:\n\n${req.body.message}`
   }, (error, info) => {
 
     // Error handling
