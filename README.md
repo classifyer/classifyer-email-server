@@ -23,8 +23,10 @@ Follow these instructions:
       - `MAIL_FROM`: The sender email
       - `MAIL_TO`: The receiver email address
       - `FRONTEND_ORIGIN`: The frontend app origin to allow with CORS
-  7. Run `git push heroku master` to deploy the server. It should be up and running after a few seconds.
-  8. Don't forget to add the email server's URL in the [Classifyer web app](https://github.com/classifyer/classifyer-web).
+  7. Generate a Service Account certificate from the Firebase account used with the [Classifyer web app](https://github.com/classifyer/classifyer-web) and store it at `/firebase.cert.json`.
+  8. Run `npm run deploy` to deploy the server. It should be up and running after a few seconds.  
+     > **NOTE:** This process will wipeout all uncommitted work! Make sure you have committed all files before running this script.
+  9. Don't forget to add the email server's URL in the [Classifyer web app](https://github.com/classifyer/classifyer-web).
 
 # API
 
