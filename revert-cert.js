@@ -1,7 +1,7 @@
 /**
  * This script reverts the last commit in the repository. This is used for undoing
  * the inclusion of firebase.cert.json file after deploying to Heroku.
- * @IMPORTANT: Any uncommited work will be lost. Only run this script with
+ * @IMPORTANT: Any uncommitted work will be lost. Only run this script with
  * `npm run deploy` and only when all work is commited.
 */
 const child = require('child_process');
@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Get last commit ID
-child.exec('git rev-parse HEAD', { windowsHide: true }, (error, stdout) => {
+child.exec('git rev-parse HEAD~1', { windowsHide: true }, (error, stdout) => {
 
   if ( error ) return console.error(error);
 
